@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block scripts %}
+    <script src="{% static 'sales/home.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block title %}
+
+{% endblock title %}
+
+<body>
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form | crispy}}
+    <button type="submit" class="btn btn-primary mt-3"> search</button>
+</form>
+<br>
+{% if sales_df %}
+    sales_df
+    {{sales_df | safe}}
+<br>
+    positions_df
+    {{positions_df | safe}}
+<br>
+    merged_df
+    {{merged_df | safe}}
+<br>
+    df
+    {{df | safe}}
+
+<br>
+    Chart
+    <img src="data:image/png;base64, {{chart}}">
+{% else %}
+<h3>No data</h3>
+{% endif %}
+
+{% endblock content %}
+
+
+</body>
+</html>
