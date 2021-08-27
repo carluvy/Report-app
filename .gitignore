@@ -9,6 +9,7 @@ media
 src/reports_project/settings.py
 src/reports_project/_pycache_
 src/reports_project/templates
+src/reports_project/urls.py
 src/db.sqlite3
 src/media
 
